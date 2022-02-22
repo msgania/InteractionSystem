@@ -8,7 +8,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN mkdir cs && tar -C cs -xzf 1c_cs_11.0.25_linux_x86_64.tar.gz* && sudo ./cs/1ce-installer-cli install && rm -r cs *.gz
-#RUN sudo ./cs/1ce-installer-cli install
-RUN sudo ./init.sh
+RUN mkdir cs && cat 1c_cs_11.0.25_linux_x86_64.tar.gz* | tar -zxv -C cs && sudo ./cs/1ce-installer-cli install && sudo ./init.sh && rm -r cs *.gz*
+
 
